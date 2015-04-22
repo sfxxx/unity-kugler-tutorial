@@ -14,9 +14,10 @@ public class EnemyMovement : MonoBehaviour {
 		this.transform.position += Vector3.down * this.speed * Time.deltaTime;
 
 		if (!this.GetComponent<Renderer>().isVisible) {
-			GameObject system = GameObject.Find("MySystem");
-			if (system != null) {
-				system.SendMessage("DamagePlayer", SendMessageOptions.DontRequireReceiver);
+			// Alternatively we could have called GetComponent on the system gameobject to get the GameInfo component and called the method directly
+			GameObject mySystem = GameObject.Find("MySystem");
+			if (mySystem != null) {
+				mySystem.SendMessage("DamagePlayer", SendMessageOptions.DontRequireReceiver);
 			}
 			GameObject.Destroy(this.gameObject);
 		}
