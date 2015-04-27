@@ -1711,6 +1711,8 @@ MonoBehaviour:
   score: 0
   healthText: {fileID: 1762949108}
   scoreText: {fileID: 506668837}
+  enemyKilledAudio: {fileID: 573090414}
+  playerHitAudio: {fileID: 42851611}
 --- !u!114 &773354730
 MonoBehaviour:
   m_ObjectHideFlags: 0
