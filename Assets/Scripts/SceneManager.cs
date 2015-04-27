@@ -51,9 +51,23 @@ public class SceneManager : MonoBehaviour {
 		this.gameScreen.SetActive(false);
 		this.gameOverScreen.SetActive(true);
 
+		this.UpdateHighScores();
 		this.EnableGameSystemObject(false);
 	}
-	
+
+	private void UpdateHighScores() {
+		GameObject mySystem = GameObject.Find("MySystem");
+
+		if (mySystem != null) {
+			ScoreManager sm = mySystem.GetComponent<ScoreManager>();
+			GameInfo gi = mySystem.GetComponent<GameInfo>();
+
+			if (sm != null && gi != null) {
+				sm.UpdateScores(gi.score);
+			}
+		}
+	}
+
 	private void EnableGameSystemObject(bool enabled) {
 		GameObject mySystem = GameObject.Find("MySystem");
 		if (mySystem != null) {

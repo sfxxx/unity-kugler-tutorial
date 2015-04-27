@@ -15,7 +15,7 @@ public class GameInfo : MonoBehaviour {
 		this.currentHealth -= 1;
 		this.healthText.text = this.currentHealth.ToString();
 
-		if (currentHealth <= 0) {
+		if (currentHealth == 0) {
 			// game over - navigate to retry screen
 			SceneManager sm = this.GetComponent<SceneManager>();
 			if (sm != null) {
