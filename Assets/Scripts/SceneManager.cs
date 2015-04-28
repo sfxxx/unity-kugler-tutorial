@@ -42,6 +42,7 @@ public class SceneManager : MonoBehaviour {
 
 		ClearEnemies();
 		this.EnableGameSystemObject(true);
+		this.SwitchBGM(true);
 	}
 	
 	public void NavigateToGameOver() {
@@ -53,6 +54,21 @@ public class SceneManager : MonoBehaviour {
 
 		this.UpdateHighScores();
 		this.EnableGameSystemObject(false);
+		this.SwitchBGM(false);
+	}
+
+	private void SwitchBGM(bool enable) {
+		GameObject audioObj = GameObject.Find("AudioBGM");
+		if (audioObj != null) {
+			AudioSource source = audioObj.GetComponent<AudioSource>();
+			if (source != null) {
+				if (enable) {
+					source.Play();
+				} else {
+					source.Stop();
+				}
+			}
+		}
 	}
 
 	private void UpdateHighScores() {
