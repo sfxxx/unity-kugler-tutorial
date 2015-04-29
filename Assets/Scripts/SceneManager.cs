@@ -9,26 +9,28 @@ public class SceneManager : MonoBehaviour {
 	public GameObject gameScreen;
 	public GameObject gameOverScreen;
 
+	public void NavigateToTitle() {
+		this.titleScreen.SetActive(true);
+		this.optionsScreen.SetActive(false);
+		this.highScoreScreen.SetActive(false);	
+		this.gameScreen.SetActive(false);
+		this.gameOverScreen.SetActive(false);
+		this.SwitchBGM(false);
+	}
+	
 	public void NavigateToOptions() {
 		this.titleScreen.SetActive(false);
 		this.optionsScreen.SetActive(true);
 		this.highScoreScreen.SetActive(false);
 		this.gameScreen.SetActive(false);
 		this.gameOverScreen.SetActive(false);
+		this.SwitchBGM(true);
 	}
 
 	public void NavigateToHighScores() {
 		this.titleScreen.SetActive(false);
 		this.optionsScreen.SetActive(false);
 		this.highScoreScreen.SetActive(true);
-		this.gameScreen.SetActive(false);
-		this.gameOverScreen.SetActive(false);
-	}
-
-	public void NavigateToTitle() {
-		this.titleScreen.SetActive(true);
-		this.optionsScreen.SetActive(false);
-		this.highScoreScreen.SetActive(false);	
 		this.gameScreen.SetActive(false);
 		this.gameOverScreen.SetActive(false);
 	}
