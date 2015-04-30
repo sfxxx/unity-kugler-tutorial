@@ -10,12 +10,27 @@ public class SceneManager : MonoBehaviour {
 	public GameObject gameOverScreen;
 
 	public void NavigateToTitle() {
+		// This is crude. We check if we're leaving the options screen
+		if (this.optionsScreen.activeInHierarchy) {
+			this.SaveSettings();
+		}
+
 		this.titleScreen.SetActive(true);
 		this.optionsScreen.SetActive(false);
 		this.highScoreScreen.SetActive(false);	
 		this.gameScreen.SetActive(false);
 		this.gameOverScreen.SetActive(false);
 		this.SwitchBGM(false);
+	}
+
+	private void SaveSettings() {
+		GameObject mySystem = GameObject.Find("MySystem");
+		if (mySystem != null) {
+			SettingsManager sm = mySystem.GetComponent<SettingsManager>();
+			if (sm != null) {
+				sm.SaveSettigs();
+			}
+		}
 	}
 	
 	public void NavigateToOptions() {

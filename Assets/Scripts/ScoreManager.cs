@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour {
 	public List<int> scores { get; private set; }
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		this.filePath = Path.Combine(Application.persistentDataPath, "scores.txt");
 		if (File.Exists(this.filePath)) {
 			this.LoadScores();
